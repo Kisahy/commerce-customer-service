@@ -1,6 +1,7 @@
 package com.kisahy.commerce.customer.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kisahy.commerce.customer.dto.CustomerResponse;
 import com.kisahy.commerce.customer.dto.SignUpRequest;
@@ -8,7 +9,6 @@ import com.kisahy.commerce.customer.entity.Customer;
 import com.kisahy.commerce.customer.exception.DuplicateEmailException;
 import com.kisahy.commerce.customer.repository.CustomerRepository;
 
-import jakarta.transaction.Transactional;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
