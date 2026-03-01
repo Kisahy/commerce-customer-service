@@ -2,8 +2,12 @@ package com.kisahy.commerce.customer.entity;
 
 import java.time.LocalDateTime;
 
+import com.kisahy.commerce.customer.enums.CustomerStatus;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,7 +33,8 @@ public class Customer {
     private String mobilePhone;
 
     @Column(nullable = false)
-    private int status;
+    @Enumerated(EnumType.STRING)
+    private CustomerStatus status;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -45,7 +50,7 @@ public class Customer {
         this.password = builder.password;
         this.name = builder.name;
         this.mobilePhone = builder.mobilePhone;
-        this.status = 1;
+        this.status = CustomerStatus.ACTIVE;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
@@ -105,7 +110,7 @@ public class Customer {
         return mobilePhone;
     }
 
-    public int getStatus() {
+    public CustomerStatus getStatus() {
         return status;
     }
 
