@@ -29,6 +29,13 @@ public class SignUpRequest {
     public SignUpRequest() {
     }
 
+    public SignUpRequest(String email, String password, String name, String mobilePhone) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.mobilePhone = mobilePhone;
+    }
+
     public String getEmail() {
         return email;
     }
