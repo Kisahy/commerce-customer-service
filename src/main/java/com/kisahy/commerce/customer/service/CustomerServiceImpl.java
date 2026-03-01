@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .email(request.getEmail())
                 .password(request.getPassword())
                 .name(request.getName())
-                .phone(request.getPhone())
+                .mobilePhone(request.getMobilePhone())
                 .build();
 
         Customer saved = customerRepository.save(customer);

@@ -8,7 +8,7 @@ public class CustomerResponse {
     private final Long id;
     private final String email;
     private final String name;
-    private final String phone;
+    private final String mobilePhone;
     private final int status;
     private final LocalDateTime createdAt;
 
@@ -16,7 +16,7 @@ public class CustomerResponse {
         this.id = customer.getId();
         this.email = customer.getEmail();
         this.name = customer.getName();
-        this.phone = customer.getPhone();
+        this.mobilePhone = customer.getMobilePhone();
         this.status = customer.getStatus();
         this.createdAt = customer.getCreatedAt();
     }
@@ -33,8 +33,8 @@ public class CustomerResponse {
         return name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getMobilePhone() {
+        return mobilePhone;
     }
 
     public int getStatus() {

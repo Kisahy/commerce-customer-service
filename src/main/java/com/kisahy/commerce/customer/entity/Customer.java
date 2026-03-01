@@ -26,7 +26,7 @@ public class Customer {
     private String name;
 
     @Column(nullable = false)
-    private String phone;
+    private String mobilePhone;
 
     @Column(nullable = false)
     private int status;
@@ -44,7 +44,7 @@ public class Customer {
         this.email = builder.email;
         this.password = builder.password;
         this.name = builder.name;
-        this.phone = builder.phone;
+        this.mobilePhone = builder.mobilePhone;
         this.status = 1;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
@@ -58,7 +58,7 @@ public class Customer {
         private String email;
         private String password;
         private String name;
-        private String phone;
+        private String mobilePhone;
 
         public Builder email(String email) {
             this.email = email;
@@ -75,8 +75,8 @@ public class Customer {
             return this;
         }
 
-        public Builder phone(String phone) {
-            this.phone = phone;
+        public Builder mobilePhone(String mobilePhone) {
+            this.mobilePhone = mobilePhone;
             return this;
         }
 
@@ -101,8 +101,8 @@ public class Customer {
         return name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getMobilePhone() {
+        return mobilePhone;
     }
 
     public int getStatus() {
