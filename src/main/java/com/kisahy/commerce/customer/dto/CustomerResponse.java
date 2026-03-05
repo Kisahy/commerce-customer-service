@@ -13,15 +13,33 @@ public class CustomerResponse {
     private final CustomerStatus status;
     private final LocalDateTime createdAt;
 
-    public CustomerResponse(Customer customer) {
-        this.id = customer.getId();
-        this.email = customer.getEmail();
-        this.name = customer.getName();
-        this.mobilePhone = customer.getMobilePhone();
-        this.status = customer.getStatus();
-        this.createdAt = customer.getCreatedAt();
+    private CustomerResponse(
+            Long id,
+            String email,
+            String name,
+            String mobilePhone,
+            CustomerStatus status,
+            LocalDateTime createdAt
+    ) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.mobilePhone = mobilePhone;
+        this.status = status;
+        this.createdAt = createdAt;
     }
 
+    public static CustomerResponse from(Customer customer) {
+        return new CustomerResponse(
+                customer.getId(),
+                customer.getEmail(),
+                customer.getName(),
+                customer.getMobilePhone(),
+                customer.getStatus(),
+                customer.getCreatedAt()
+        );
+    }
+    
     public Long getId() {
         return id;
     }

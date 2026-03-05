@@ -40,6 +40,6 @@ public class CustomerServiceImpl implements CustomerService {
 
         Customer saved = customerRepository.save(customer);
 
-        return new CustomerResponse(saved);
+        return CustomerResponse.from(saved);
     }
 }
