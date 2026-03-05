@@ -1,7 +1,9 @@
 package com.kisahy.commerce.customer.exception;
 
-public class DuplicateEmailException extends RuntimeException {
-    public DuplicateEmailException(String message) {
-        super(message);
+import org.springframework.http.HttpStatus;
+
+public class DuplicateEmailException extends BusinessException {
+    public DuplicateEmailException() {
+        super("이미 사용 중인 이메일입니다.", HttpStatus.CONFLICT);
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.kisahy.commerce.customer.dto.LoginRequest;
 import com.kisahy.commerce.customer.dto.LoginResponse;
+import com.kisahy.commerce.customer.exception.InvalidLoginException;
 import com.kisahy.commerce.customer.jwt.JwtProvider;
 import com.kisahy.commerce.customer.repository.CustomerRepository;
 
@@ -25,12 +26,12 @@ public class StoreAuthService {
     }
 
     public LoginResponse login(LoginRequest request) {
-        var customer = customerRepository.findByEmail(request.getEmail()).orElseThrow(() ->
-                new IllegalArgumentException("Invalid email address provided")
-        );
+        var customer = customerRepository
+                .findByEmail(request.getEmail())
+                .orElseThrow(InvalidLoginException::new);
 
         if (!passwordEncoder.matches(request.getPassword(), customer.getPassword())) {
-            throw new IllegalArgumentException("Invalid password provided");
+            throw new InvalidLoginException();
         }
 
         String token = jwtProvider.generateToken(customer.getId(), customer.getEmail());

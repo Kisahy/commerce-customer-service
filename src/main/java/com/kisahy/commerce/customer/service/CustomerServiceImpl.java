@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public CustomerResponse signUp(SignUpRequest request) {
         if (customerRepository.existsByEmail(request.getEmail())) {
-            throw new DuplicateEmailException("이미 사용 중인 이메일입니다.");
+            throw new DuplicateEmailException();
         }
 
         Customer customer = Customer.builder()

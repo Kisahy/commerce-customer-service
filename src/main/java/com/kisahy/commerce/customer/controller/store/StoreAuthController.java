@@ -10,6 +10,8 @@ import com.kisahy.commerce.customer.dto.LoginRequest;
 import com.kisahy.commerce.customer.dto.LoginResponse;
 import com.kisahy.commerce.customer.service.StoreAuthService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/store/auth")
 public class StoreAuthController {
@@ -21,7 +23,7 @@ public class StoreAuthController {
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(
-            @RequestBody LoginRequest request
+            @RequestBody @Valid LoginRequest request
     ) {
         return ResponseEntity.ok(storeAuthService.login(request));
     }
